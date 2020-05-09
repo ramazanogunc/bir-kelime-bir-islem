@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/buttonRandom"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Rastgele Üret"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/primaryTextColor"
+        android:paddingHorizontal="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="right"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:text="Harfleri giriniz." />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="8"
+        android:paddingHorizontal="10dp">
+
+        <EditText
+            android:id="@+id/editTextNumber1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextNumber2"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextNumber3"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextNumber4"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:inputType="text" />
+
+
+        <EditText
+            android:id="@+id/editTextNumber5"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:inputType="text" />
+        <EditText
+            android:id="@+id/editTextNumber6"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextNumber7"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextNumber8"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:inputType="text" />
+    </GridLayout>
+
+
+    <Button
+        android:id="@+id/buttonFindWord"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Kelime bul"
+        android:layout_marginVertical="15dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/primaryTextColor"
+        android:paddingHorizontal="5dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kelimeler ve puanlar"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
