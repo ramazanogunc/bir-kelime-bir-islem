@@ -21,6 +21,7 @@ class TransactionFragment : Fragment(), OneTransactionListener {
     private lateinit var oneTransaction: OneTransaction
     internal lateinit var pDialog: ProgressDialog
     private lateinit var fView: View
+    private var goalNumber = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,11 +55,11 @@ class TransactionFragment : Fragment(), OneTransactionListener {
 
 
     fun onButtonRandomClick() {
-        view?.editTextNumber1?.setText((0..9).random().toString())
-        view?.editTextNumber2?.setText((0..9).random().toString())
-        view?.editTextNumber3?.setText((0..9).random().toString())
-        view?.editTextNumber4?.setText((0..9).random().toString())
-        view?.editTextNumber5?.setText((0..9).random().toString())
+        view?.editTextNumber1?.setText((1..9).random().toString())
+        view?.editTextNumber2?.setText((1..9).random().toString())
+        view?.editTextNumber3?.setText((1..9).random().toString())
+        view?.editTextNumber4?.setText((1..9).random().toString())
+        view?.editTextNumber5?.setText((1..9).random().toString())
         view?.editTextNumberTwoDigit?.setText(((1..9).random() * 10).toString())
         view?.editTextNumberGoal?.setText((100..999).random().toString())
     }
@@ -75,10 +76,11 @@ class TransactionFragment : Fragment(), OneTransactionListener {
                 fView.editTextNumber5.text.toString().toInt(),
                 fView.editTextNumberTwoDigit.text.toString().toInt()
             )
+            goalNumber = fView.editTextNumberGoal.text.toString().toInt()
             oneTransaction =
                 OneTransaction(
                     numbers,
-                    fView.editTextNumberGoal.text.toString().toInt(),
+                    goalNumber,
                     this
                 )
             AsyncOneTransaction(
@@ -91,7 +93,7 @@ class TransactionFragment : Fragment(), OneTransactionListener {
 
 
     override fun onSuccessTransaction(transactionList: List<ItemOneTransaction>) {
-        activity?.toast("sonuç bulundu")
+        activity?.toast("10 puan - sonuç bulundu")
         view!!.listView.adapter = ArrayAdapter(
             activity!!,
             android.R.layout.simple_list_item_1,
@@ -102,7 +104,8 @@ class TransactionFragment : Fragment(), OneTransactionListener {
     }
 
     override fun onFailTransaction(closeResult: List<ItemOneTransaction>) {
-        activity?.toast("En yakın sonuç bulundu")
+        val score = goalNumber - closeResult.last().result
+        activity?.toast("$score puan - En yakın sonuç bulundu")
         view!!.listView.adapter = ArrayAdapter(
             activity!!,
             android.R.layout.simple_list_item_1,
